@@ -101,7 +101,7 @@ export function Header() {
       {/* Mobile Navigation - ONLY show on mobile when menu is open */}
       {isMobileMenuOpen && (
         <div className="block md:hidden fixed top-20 left-0 right-0 z-40">
-          <div className="backdrop-blur-md bg-black/20 shadow-2xl">
+          <div className="backdrop-blur-md bg-black/20 border-b border-white/20 shadow-2xl">
             <div className="container mx-auto px-4 py-8">
               <nav className="flex flex-col space-y-8">
                 <button
