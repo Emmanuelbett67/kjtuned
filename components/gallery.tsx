@@ -140,20 +140,20 @@ export function Gallery() {
       {/* Image Modal/Lightbox */}
       {selectedImage && (
         <div 
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4"
           onClick={closeModal}
         >
-          <div className="relative max-w-7xl max-h-[90vh] mx-4">
+          <div className="relative max-w-7xl max-h-[90vh] w-full">
             <button
               onClick={closeModal}
-              className="absolute -top-12 right-0 text-white hover:text-primary transition-colors z-10"
+              className="absolute top-4 right-4 md:-top-12 md:right-0 text-white hover:text-primary transition-colors z-10 bg-black/50 rounded-full p-2 md:bg-transparent md:p-0"
             >
-              <X size={32} />
+              <X size={24} className="md:w-8 md:h-8" />
             </button>
             <img
               src={selectedImage}
               alt="Gallery Image"
-              className="max-w-full max-h-[90vh] object-contain rounded-lg"
+              className="max-w-full max-h-[80vh] md:max-h-[90vh] object-contain rounded-lg mx-auto block"
               onClick={(e) => e.stopPropagation()}
             />
           </div>
