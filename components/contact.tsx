@@ -158,11 +158,11 @@ export function Contact() {
                 />
               </div>
 
-              <div className="flex justify-end">
+              <div className="flex justify-center">
                 <Button
                   type="submit"
-                  size="lg"
-                  className="bg-primary text-primary-foreground hover:bg-primary/90 px-12"
+                  size="default"
+                  className="bg-primary text-primary-foreground hover:bg-primary/90 px-8"
                 >
                   Submit Form
                 </Button>
