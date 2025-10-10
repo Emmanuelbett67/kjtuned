@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
+import { X } from "lucide-react"
 
 const categories = ["All", "ECU Tuning", "Turbo Builds", "Dyno Results", "Track Cars"]
 
@@ -65,9 +66,18 @@ const galleryItems = [
 
 export function Gallery() {
   const [activeCategory, setActiveCategory] = useState("All")
+  const [selectedImage, setSelectedImage] = useState<string | null>(null)
 
   const filteredItems =
     activeCategory === "All" ? galleryItems : galleryItems.filter((item) => item.category === activeCategory)
+
+  const openModal = (imageSrc: string) => {
+    setSelectedImage(imageSrc)
+  }
+
+  const closeModal = () => {
+    setSelectedImage(null)
+  }
 
   return (
     <section id="gallery" className="py-32 bg-secondary/30">
@@ -108,6 +118,7 @@ export function Gallery() {
               <div
                 key={index}
                 className="group relative aspect-[4/3] overflow-hidden rounded-lg bg-muted cursor-pointer"
+                onClick={() => openModal(item.image || "/placeholder.svg")}
               >
                 <img
                   src={item.image || "/placeholder.svg"}
@@ -125,6 +136,29 @@ export function Gallery() {
           </div>
         </div>
       </div>
+
+      {/* Image Modal/Lightbox */}
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm"
+          onClick={closeModal}
+        >
+          <div className="relative max-w-7xl max-h-[90vh] mx-4">
+            <button
+              onClick={closeModal}
+              className="absolute -top-12 right-0 text-white hover:text-primary transition-colors z-10"
+            >
+              <X size={32} />
+            </button>
+            <img
+              src={selectedImage}
+              alt="Gallery Image"
+              className="max-w-full max-h-[90vh] object-contain rounded-lg"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>
+        </div>
+      )}
     </section>
   )
 }
