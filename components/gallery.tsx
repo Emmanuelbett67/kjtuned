@@ -125,10 +125,11 @@ export function Gallery() {
                   alt={item.title}
                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                {/* Mobile: Always visible overlay, Desktop: Show on hover */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
                     <p className="text-xs text-primary font-medium mb-1">{item.category}</p>
-                    <h3 className="text-lg font-semibold">{item.title}</h3>
+                    <h3 className="text-sm md:text-lg font-semibold">{item.title}</h3>
                   </div>
                 </div>
               </div>

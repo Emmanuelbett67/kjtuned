@@ -49,12 +49,12 @@ export function Header() {
                 alt="KJ Tuned" 
                 width={160} 
                 height={50} 
-                className="h-14 w-auto brightness-0 invert" 
+                className="h-10 sm:h-12 lg:h-14 w-auto brightness-0 invert" 
               />
             </button>
 
-            {/* Desktop Navigation - ONLY show on desktop */}
-            <div className="hidden md:flex items-center gap-10">
+            {/* Desktop Navigation - ONLY show on large screens */}
+            <div className="hidden lg:flex items-center gap-10">
               <button
                 onClick={() => scrollToSection("about")}
                 className="text-sm font-semibold text-gray-300 hover:text-primary transition-all duration-300 tracking-wide uppercase relative group"
@@ -85,9 +85,9 @@ export function Header() {
               </button>
             </div>
 
-            {/* Mobile Menu Button - ONLY show on mobile */}
+            {/* Mobile Menu Button - ONLY show on small/medium screens */}
             <button 
-              className={`block md:hidden text-white hover:text-primary transition-colors z-50 ${
+              className={`block lg:hidden text-white hover:text-primary transition-colors z-50 ${
                 !isScrolled && !isMobileMenuOpen ? "drop-shadow-[0_0_10px_rgba(0,0,0,0.8)]" : ""
               }`}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -98,9 +98,9 @@ export function Header() {
         </div>
       </header>
 
-      {/* Mobile Navigation - ONLY show on mobile when menu is open */}
+      {/* Mobile Navigation - ONLY show on small/medium screens when menu is open */}
       {isMobileMenuOpen && (
-        <div className="block md:hidden fixed top-20 left-0 right-0 z-40">
+        <div className="block lg:hidden fixed top-20 left-0 right-0 z-40">
           <div className="backdrop-blur-md bg-black/20 border-b border-white/20 shadow-2xl">
             <div className="container mx-auto px-4 py-8">
               <nav className="flex flex-col space-y-8">
